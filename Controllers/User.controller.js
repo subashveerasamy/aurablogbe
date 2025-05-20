@@ -48,14 +48,14 @@ export const userLogin= async(req, res) =>{
             res.status(200).json({message:"Email not found"})
         }
         else{
-            const isMatch= (password === user.password)
-           // const isMatch=await bcrypt.compare(password,user.password);
+            console.log(email, password)
+            const isMatch=await bcrypt.compare(password,user.password);
             if(!isMatch){
                 res.status(200).json({message:"Invalid credentials"})
            
                  }
             else{
-                const token= jwt.sign({id:user._id}, process.env.JWT_SECRET, {expiresIn:"1h"});
+                const token= jwt.sign({id:user._id}, process.env.JWT_SECRET, {expiresIn:"2h"});
             res.status(200).json({message:"Login successful", token:token});
             }
           

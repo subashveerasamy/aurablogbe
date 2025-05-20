@@ -20,13 +20,12 @@ const blogsSchema= new mongoose.Schema({
         required:true
     },
     image:{
-        type:String,
-        required:true
+        type:String
+        
     },
     userId:{
-        // type:mongoose.Types.ObjectId,
-        // ref:'User',
-        type:String,
+        type:mongoose.Types.ObjectId,
+        ref:'User',
         required:true
     },
      createdAt:{
